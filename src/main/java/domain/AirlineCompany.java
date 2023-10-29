@@ -1,4 +1,4 @@
-package Domain;
+package domain;
 
 public class AirlineCompany {
     private int airlineID;
@@ -52,5 +52,16 @@ public class AirlineCompany {
 
     public void setNrEmployees(int nrEmployees) {
         this.nrEmployees = nrEmployees;
+    }
+
+    @Override
+    public String toString() {
+        return "AirlineCompany{" +
+                "airlineID=" + airlineID +
+                ", name='" + name + '\'' +
+                ", country='" + country + '\'' +
+                ", fleetSize=" + fleetSize +
+                ", nrEmployees=" + nrEmployees +
+                '}';
     }
 }

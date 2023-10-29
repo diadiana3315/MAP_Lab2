@@ -1,4 +1,4 @@
-package Domain;
+package domain;
 
 public class BoardingGate {
     private int gateNumber;
@@ -21,60 +21,72 @@ public class BoardingGate {
 
 
     public int getGateNumber() {
+
         return gateNumber;
     }
 
     public void setGateNumber(int gateNumber) {
+
         this.gateNumber = gateNumber;
     }
 
     public int getAircraftID() {
+
         return aircraftID;
     }
 
     public void setAircraftID(int aircraftID) {
+
         this.aircraftID = aircraftID;
     }
 
     public String getAirline() {
+
         return airline;
     }
 
     public void setAirline(String airline) {
+
         this.airline = airline;
     }
 
     public int getFlightNumber() {
+
         return flightNumber;
     }
 
     public void setFlightNumber(int flightNumber) {
+
         this.flightNumber = flightNumber;
     }
 
     public Status getStatus() {
+
         return status;
     }
 
     public void setStatus(Status status) {
+
         this.status = status;
     }
 
     public int getStaffID() {
+
         return staffID;
     }
 
     public void setStaffID(int staffID) {
+
         this.staffID = staffID;
     }
 
     public int getDepartureTime() {
+
         return departureTime;
     }
 
     public void setDepartureTime(int departureTime) {
         this.departureTime = departureTime;
     }
-
 
 }
