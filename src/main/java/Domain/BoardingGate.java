@@ -5,12 +5,11 @@ public class BoardingGate {
     private int aircraftID;
     private String airline;
     private int flightNumber;
-    private String status; // boarding, closed, delayed
+    private Status status;
     private int staffID;
     private int departureTime;
 
-
-    public BoardingGate(int gateNumber, int aircraftID, String airline, int flightNumber, String status, int staffID, int departureTime) {
+    public BoardingGate(int gateNumber, int aircraftID, String airline, int flightNumber, Status status, int staffID, int departureTime) {
         this.gateNumber = gateNumber;
         this.aircraftID = aircraftID;
         this.airline = airline;
@@ -19,6 +18,7 @@ public class BoardingGate {
         this.staffID = staffID;
         this.departureTime = departureTime;
     }
+
 
     public int getGateNumber() {
         return gateNumber;
@@ -52,11 +52,11 @@ public class BoardingGate {
         this.flightNumber = flightNumber;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 

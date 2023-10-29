@@ -1,22 +1,18 @@
 package Domain;
 
-import java.util.ArrayList;
-
 public class AirlineCompany {
     private int airlineID;
     private String name;
     private String country;
     private int fleetSize;
     private int nrEmployees;
-    private ArrayList destinations;
 
-    public AirlineCompany(int airlineID, String name, String country, int fleetSize, int nrEmployees, ArrayList destinations) {
+    public AirlineCompany(int airlineID, String name, String country, int fleetSize, int nrEmployees) {
         this.airlineID = airlineID;
         this.name = name;
         this.country = country;
         this.fleetSize = fleetSize;
         this.nrEmployees = nrEmployees;
-        this.destinations = destinations;
     }
     public int getAirlineID() {
         return airlineID;
@@ -57,15 +53,4 @@ public class AirlineCompany {
     public void setNrEmployees(int nrEmployees) {
         this.nrEmployees = nrEmployees;
     }
-
-    public ArrayList getDestinations() {
-        return destinations;
-    }
-
-    public void setDestinations(ArrayList destinations) {
-        this.destinations = destinations;
-    }
-
-
-
 }

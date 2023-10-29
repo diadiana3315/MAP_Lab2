@@ -5,14 +5,12 @@ public class FlightDelayLog {
     private int flightNumber;
     private String delayReason;
     private int duration;
-    private String status;
 
-    public FlightDelayLog(int logID, int flightNumber, String delayReason, int duration, String status) {
+    public FlightDelayLog(int logID, int flightNumber, String delayReason, int duration) {
         this.logID = logID;
         this.flightNumber = flightNumber;
         this.delayReason = delayReason;
         this.duration = duration;
-        this.status = status;
     }
 
     public int getLogID() {
@@ -47,11 +45,4 @@ public class FlightDelayLog {
         this.duration = duration;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 }
