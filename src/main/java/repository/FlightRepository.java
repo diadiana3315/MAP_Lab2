@@ -19,11 +19,6 @@ public class FlightRepository implements Repository<Flight> {
         flights.remove(flight);
     }
 
-//    @Override
-//    public void update(Flight entity, Flight newEntity) {
-//        entity = newEntity;
-//    }
-
     @Override
     public List<Flight> getAll() {
         return flights;

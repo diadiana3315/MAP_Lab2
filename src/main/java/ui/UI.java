@@ -1,9 +1,7 @@
 package ui;
 import controller.FlightController;
-import domain.Flight;
-import repository.FlightRepository;
 import controller.AirlineController;
-import domain.AirlineCompany;
+
 
 import java.util.Scanner;
 
