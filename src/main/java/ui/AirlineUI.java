@@ -27,10 +27,13 @@ public class AirlineUI {
             switch (option) {
                 case 1:
                     int airlineId = scanner.nextInt();
+                    scanner.nextLine();
                     String name = scanner.nextLine();
                     String country = scanner.nextLine();
                     int fleetSize = scanner.nextInt();
+                    scanner.nextLine();
                     int nrEmployees = scanner.nextInt();
+                    scanner.nextLine();
                     AirlineCompany newAirline = new AirlineCompany(airlineId, name, country, fleetSize, nrEmployees);
                     airlineController.addAirline(newAirline);
                     break;
