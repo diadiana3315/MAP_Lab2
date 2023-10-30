@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class FlightUI {
     private FlightController flightController;
-    private Scanner scanner = new Scanner(System.in);
 
     public FlightUI(FlightController flightController) {
         this.flightController = flightController;
