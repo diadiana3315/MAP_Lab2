@@ -4,7 +4,7 @@ import domain.Pilot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PilotRepo implements Repository<Pilot>{
+public class PilotRepository implements Repository<Pilot>{
     private List<Pilot> pilotList = new ArrayList<>();
 
     @Override

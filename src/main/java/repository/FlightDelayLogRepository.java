@@ -5,7 +5,7 @@ import domain.FlightDelayLog;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FlightDelayLogRepo implements Repository<FlightDelayLog> {
+public class FlightDelayLogRepository implements Repository<FlightDelayLog> {
     private List<FlightDelayLog> flightDelayLogList = new ArrayList<>();
 
     @Override

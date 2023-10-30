@@ -5,7 +5,7 @@ import domain.AirlineCompany;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AirlineRepo implements Repository<AirlineCompany> {
+public class AirlineRepository implements Repository<AirlineCompany> {
     private List<AirlineCompany> airlineCompany = new ArrayList<>();
 
 

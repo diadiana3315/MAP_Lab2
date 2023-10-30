@@ -1,7 +1,6 @@
 package controller;
 
 import domain.AirlineCompany;
-import repository.AirlineRepo;
 import repository.Repository;
 
 import java.util.ArrayList;

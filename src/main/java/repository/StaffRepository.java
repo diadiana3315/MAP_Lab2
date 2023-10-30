@@ -5,7 +5,7 @@ import domain.Staff;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StaffRepo implements Repository<Staff> {
+public class StaffRepository implements Repository<Staff> {
     private List<Staff> staffList = new ArrayList<>();
 
     @Override

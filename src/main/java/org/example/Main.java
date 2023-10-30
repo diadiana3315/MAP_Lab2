@@ -2,14 +2,14 @@ package org.example;
 
 import controller.AirlineController;
 import controller.FlightController;
-import repository.AirlineRepo;
+import repository.AirlineRepository;
 import repository.FlightRepository;
 import ui.UI;
 
 public class Main {
     public static void main(String[] args) {
         FlightRepository flightRepository = new FlightRepository();
-        AirlineRepo airlineRepository = new AirlineRepo();
+        AirlineRepository airlineRepository = new AirlineRepository();
 
         FlightController flightController = new FlightController(flightRepository);
         AirlineController airlineController = new AirlineController(airlineRepository);

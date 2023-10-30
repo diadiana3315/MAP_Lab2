@@ -5,7 +5,7 @@ import domain.BoardingGate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BoardingGateRepo implements Repository<BoardingGate> {
+public class BoardingGateRepository implements Repository<BoardingGate> {
     private List<BoardingGate> boardingGates = new ArrayList<>();
 
     @Override
