@@ -1,4 +1,7 @@
 package repository;
-
-public class Repository {
+import java.util.List;
+public interface Repository<T> {
+    void save(T entity);
+    void remove(T entity);
+    List<T> getAll();
 }

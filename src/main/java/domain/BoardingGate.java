@@ -3,13 +3,13 @@ package domain;
 public class BoardingGate {
     private int gateNumber;
     private int aircraftID;
-    private String airline;
+    private AirlineCompany airline;
     private int flightNumber;
     private Status status;
     private int staffID;
     private int departureTime;
 
-    public BoardingGate(int gateNumber, int aircraftID, String airline, int flightNumber, Status status, int staffID, int departureTime) {
+    public BoardingGate(int gateNumber, int aircraftID, AirlineCompany airline, int flightNumber, Status status, int staffID, int departureTime) {
         this.gateNumber = gateNumber;
         this.aircraftID = aircraftID;
         this.airline = airline;
@@ -40,12 +40,13 @@ public class BoardingGate {
         this.aircraftID = aircraftID;
     }
 
-    public String getAirline() {
+    public AirlineCompany getAirline() {
 
         return airline;
     }
 
-    public void setAirline(String airline) {
+    public void setAirline(AirlineCompany
+                                   airline) {
 
         this.airline = airline;
     }
