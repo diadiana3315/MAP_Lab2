@@ -2,7 +2,8 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
-public class Flight {
+public class Flight implements FlightSubject {
+    private List<FlightObserver> observers = new ArrayList<>();
     private int flightId;
     private String airline;
     private String departureTime;
@@ -45,5 +46,22 @@ public class Flight {
                 ", departureTime='" + departureTime + '\'' +
                 ", arrivalTime='" + arrivalTime + '\'' +
                 '}';
+    }
+
+    @Override
+    public void addObserver(FlightObserver observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(FlightObserver observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (FlightObserver observer : observers) {
+            observer.update();
+        }
     }
 }

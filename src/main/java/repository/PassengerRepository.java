@@ -23,5 +23,10 @@ public class PassengerRepository implements Repository<Passenger> {
     public List<Passenger> getAll() {
         return passengers;
     }
+
+    @Override
+    public Passenger getById(int id) {
+        return null;
+    }
 }
 

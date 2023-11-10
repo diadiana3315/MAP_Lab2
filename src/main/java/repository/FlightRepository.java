@@ -23,4 +23,13 @@ public class FlightRepository implements Repository<Flight> {
     public List<Flight> getAll() {
         return flights;
     }
+
+    public Flight getById(int flightId) {
+        for (Flight flight : flights) {
+            if (flight.getFlightId() == flightId) {
+                return flight;
+            }
+        }
+        return null;
+    }
 }

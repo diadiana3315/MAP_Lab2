@@ -22,4 +22,9 @@ public class BoardingGateRepository implements Repository<BoardingGate> {
     public List<BoardingGate> getAll() {
         return boardingGates;
     }
+
+    @Override
+    public BoardingGate getById(int id) {
+        return null;
+    }
 }

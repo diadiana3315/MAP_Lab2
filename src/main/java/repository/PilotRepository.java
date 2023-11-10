@@ -21,4 +21,9 @@ public class PilotRepository implements Repository<Pilot>{
     public List<Pilot> getAll() {
         return pilotList;
     }
+
+    @Override
+    public Pilot getById(int id) {
+        return null;
+    }
 }

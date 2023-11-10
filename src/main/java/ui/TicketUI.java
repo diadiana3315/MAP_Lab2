@@ -68,7 +68,6 @@ public class TicketUI {
                     System.out.print("Price: ");
                     double price = scanner.nextDouble();
                     Ticket newTicket = new Ticket(ticketId, passenger, flight, price);
-/////////////////////////////////////////
 
                     System.out.println("Select payment method:");
                     System.out.println("1. Credit Card");

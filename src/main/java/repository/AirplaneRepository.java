@@ -23,4 +23,9 @@ public class AirplaneRepository implements Repository<Airplane> {
     public List<Airplane> getAll() {
         return airplanes;
     }
+
+    @Override
+    public Airplane getById(int id) {
+        return null;
+    }
 }

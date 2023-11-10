@@ -22,4 +22,9 @@ public class FlightDelayLogRepository implements Repository<FlightDelayLog> {
     public List<FlightDelayLog> getAll() {
         return flightDelayLogList;
     }
+
+    @Override
+    public FlightDelayLog getById(int id) {
+        return null;
+    }
 }

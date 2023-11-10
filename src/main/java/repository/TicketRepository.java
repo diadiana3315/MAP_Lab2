@@ -23,4 +23,9 @@ public class TicketRepository implements Repository<Ticket> {
     public List<Ticket> getAll() {
         return tickets;
     }
+
+    @Override
+    public Ticket getById(int id) {
+        return null;
+    }
 }

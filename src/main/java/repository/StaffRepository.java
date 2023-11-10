@@ -22,4 +22,9 @@ public class StaffRepository implements Repository<Staff> {
     public List<Staff> getAll() {
         return staffList;
     }
+
+    @Override
+    public Staff getById(int id) {
+        return null;
+    }
 }
