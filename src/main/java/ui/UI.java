@@ -1,6 +1,7 @@
 package ui;
 import controller.FlightController;
 import controller.AirlineController;
+import controller.TicketController;
 
 
 import java.util.Scanner;
@@ -8,11 +9,13 @@ import java.util.Scanner;
 public class UI {
     private FlightController flightController;
     private AirlineController airlineController;
+    private TicketController ticketController;
     private Scanner scanner = new Scanner(System.in);
 
-    public UI(FlightController flightController, AirlineController airlineController) {
+    public UI(FlightController flightController, AirlineController airlineController, TicketController ticketController) {
         this.flightController = flightController;
         this.airlineController = airlineController;
+        this.ticketController = ticketController;
     }
 
     public void start() {
@@ -22,7 +25,8 @@ public class UI {
             System.out.println("Select an entity to work on:");
             System.out.println("1. Flight");
             System.out.println("2. Airline Company");
-            System.out.println("3. Exit");
+            System.out.println("3. Ticket");
+            System.out.println("4. Exit");
 
             int entityChoice = scanner.nextInt();
             scanner.nextLine();
@@ -37,6 +41,10 @@ public class UI {
                     airlineUI.handleAirlineOperations();
                     break;
                 case 3:
+                    TicketUI ticketUI = new TicketUI(ticketController);
+                    ticketUI.handleTicketOperations();
+                    break;
+                case 4:
                     exit = true;
                     break;
                 default:

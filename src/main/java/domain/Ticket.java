@@ -1,11 +1,15 @@
 package domain;
 
-public class Ticket {
+import domain.strategyPattern.PaymentStrategy;
+
+public class Ticket{
     private int ticketId;
     private Passenger passenger;
     private Flight flight;
-    private int price;
-    public Ticket(int ticketId, Passenger passenger, Flight flight, int price) {
+    private double price;
+    private PaymentStrategy paymentStrategy;
+
+    public Ticket(int ticketId, Passenger passenger, Flight flight, double price) {
         this.ticketId = ticketId;
         this.passenger = passenger;
         this.flight = flight;
@@ -29,10 +33,10 @@ public class Ticket {
     public void setFlight(Flight flight) {
         this.flight = flight;
     }
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
     @Override
@@ -44,4 +48,11 @@ public class Ticket {
                 ", price=" + price +
                 '}';
     }
+
+
+    public void processPayment (PaymentStrategy paymentStrategy) {
+        paymentStrategy.pay(price);
+    }
+
+    // add method pay -> strategy pattern (by card/ paypal)
 }

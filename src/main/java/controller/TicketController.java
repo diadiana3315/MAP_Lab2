@@ -1,8 +1,12 @@
 package controller;
 
+import domain.Flight;
+import domain.Passenger;
 import domain.Ticket;
+import domain.strategyPattern.PaymentStrategy;
 import repository.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TicketController {
@@ -16,12 +20,27 @@ public class TicketController {
         ticketRepository.save(ticket);
     }
 
-    public void removeTicket(Ticket ticket) {
-        ticketRepository.remove(ticket);
+    public void removeTicket(int ticketId) {
+        List<Ticket> tickets = ticketRepository.getAll();
+        List<Ticket> ticketsToRemove = new ArrayList<>();
+        for (Ticket ticket : tickets) {
+            if (ticket.getTicketId() == ticketId) {
+                ticketsToRemove.add(ticket);
+            }
+        }
+        for (Ticket ticket : ticketsToRemove) {
+            ticketRepository.remove(ticket);
+        }
     }
 
     public List<Ticket> getAllTickets() {
         return ticketRepository.getAll();
     }
+
+    public void createTicket(Ticket ticket, PaymentStrategy paymentStrategy) {
+        saveTicket(ticket);
+        ticket.processPayment(paymentStrategy);
+    }
+
 }
 
