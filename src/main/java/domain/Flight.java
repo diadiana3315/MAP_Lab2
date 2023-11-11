@@ -63,6 +63,5 @@ public class Flight implements FlightSubject {
         for (FlightObserver observer : observers) {
             observer.update();
         }
-        System.out.println("Flight was updated!!!");
     }
 }

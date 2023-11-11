@@ -2,6 +2,7 @@ package ui;
 
 import controller.FlightController;
 import domain.Flight;
+import domain.Passenger;
 
 import java.util.Scanner;
 
@@ -83,6 +84,25 @@ public class FlightUI {
 
                         flightController.updateFlight(flightIdToUpdate, updatedFlight);
 
+                        System.out.println("Enter passenger details:");
+                        System.out.print("First Name: ");
+                        String firstName = scanner.nextLine();
+                        System.out.print("Last Name: ");
+                        String lastName = scanner.next();
+                        System.out.print("Age: ");
+                        int age = scanner.nextInt();
+                        scanner.nextLine();
+                        System.out.print("Gender: ");
+                        String gender = scanner.nextLine();
+                        System.out.print("Passenger ID: ");
+                        int passengerId = scanner.nextInt();
+                        scanner.nextLine();
+                        System.out.print("Passport Number: ");
+                        int passportNumber = scanner.nextInt();
+                        scanner.nextLine();
+
+                        Passenger passenger = new Passenger(firstName, lastName, age, gender, passengerId, passportNumber);
+                        existingFlight.addObserver(passenger);
                         existingFlight.notifyObservers();
 
                     } else {
