@@ -54,5 +54,4 @@ public class Ticket{
         paymentStrategy.pay(price);
     }
 
-    // add method pay -> strategy pattern (by card/ paypal)
 }

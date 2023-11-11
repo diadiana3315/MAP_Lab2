@@ -85,7 +85,6 @@ public class FlightUI {
 
                         existingFlight.notifyObservers();
 
-                        System.out.println("Flight updated successfully!");
                     } else {
                         System.out.println("Flight not found.");
                     }
