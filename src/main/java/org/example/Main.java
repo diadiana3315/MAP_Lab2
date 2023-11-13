@@ -19,10 +19,7 @@ public class Main {
         AirlineController airlineController = new AirlineController(airlineRepository);
         TicketController ticketController = new TicketController(ticketRepository);
 
-
-
         UI ui = new UI(flightController, airlineController, ticketController);
         ui.start();
-
     }
 }

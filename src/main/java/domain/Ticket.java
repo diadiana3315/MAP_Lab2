@@ -49,7 +49,6 @@ public class Ticket{
                 '}';
     }
 
-
     public void processPayment (PaymentStrategy paymentStrategy) {
         paymentStrategy.pay(price);
     }
