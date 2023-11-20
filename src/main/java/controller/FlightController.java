@@ -1,28 +1,27 @@
 package controller;
+
 import domain.Flight;
+import repository.FlightRepository;
 import repository.Repository;
+
 import java.util.ArrayList;
 import java.util.List;
+
 public class FlightController {
     private Repository<Flight> flightRepository;
-    public FlightController(Repository<Flight> flightRepository) {
+
+    public FlightController(FlightRepository flightRepository) {
         this.flightRepository = flightRepository;
     }
+
     public void saveFlight(Flight flight) {
         flightRepository.save(flight);
     }
+
     public void removeFlight(int flightId) {
-        List<Flight> flights = flightRepository.getAll();
-        List<Flight> flightsToRemove = new ArrayList<>();
-        for (Flight flight : flights) {
-            if (flight.getFlightId() == flightId) {
-                flightsToRemove.add(flight);
-            }
-        }
-        for (Flight flight : flightsToRemove) {
-            flightRepository.remove(flight);
-        }
+        flightRepository.removeById(flightId);
     }
+
     public List<Flight> getAllFlights() {
         return flightRepository.getAll();
     }
@@ -37,7 +36,8 @@ public class FlightController {
             System.out.println("Flight not found.");
         }
     }
-    public Flight getFlightById(int flightId){
+
+    public Flight getFlightById(int flightId) {
         Flight flight = flightRepository.getById(flightId);
         return flight;
     }

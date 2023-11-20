@@ -2,7 +2,7 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
-public class Flight implements FlightSubject {
+public class Flight implements FlightSubject, Identifiable {
     private List<FlightObserver> observers = new ArrayList<>();
     private int flightId;
     private String airline;
@@ -63,5 +63,10 @@ public class Flight implements FlightSubject {
         for (FlightObserver observer : observers) {
             observer.update();
         }
+    }
+
+    @Override
+    public int getId() {
+        return flightId;
     }
 }

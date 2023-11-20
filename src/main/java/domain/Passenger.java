@@ -1,6 +1,6 @@
 package domain;
 
-public class Passenger extends Person implements FlightObserver {
+public class Passenger extends Person implements FlightObserver, Identifiable {
     private int passengerId;
     private int passportNumber;
     public Passenger(String firstName, String lastName, int age, String gender, int passengerId, int passportNumber) {
@@ -31,5 +31,10 @@ public class Passenger extends Person implements FlightObserver {
     @Override
     public void update() {
         System.out.println("Passenger " + getFirstName() + getLastName() + " has been notified about a flight update.");
+    }
+
+    @Override
+    public int getId() {
+        return passengerId;
     }
 }

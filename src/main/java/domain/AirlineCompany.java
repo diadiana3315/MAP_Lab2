@@ -1,6 +1,6 @@
 package domain;
 
-public class AirlineCompany {
+public class AirlineCompany implements Identifiable {
     private int airlineID;
     private String name;
     private String country;
@@ -13,9 +13,6 @@ public class AirlineCompany {
         this.country = country;
         this.fleetSize = fleetSize;
         this.nrEmployees = nrEmployees;
-    }
-    public int getAirlineID() {
-        return airlineID;
     }
 
     public void setAirlineID(int airlineID) {
@@ -63,5 +60,10 @@ public class AirlineCompany {
                 ", fleetSize=" + fleetSize +
                 ", nrEmployees=" + nrEmployees +
                 '}';
+    }
+
+    @Override
+    public int getId() {
+        return airlineID;
     }
 }

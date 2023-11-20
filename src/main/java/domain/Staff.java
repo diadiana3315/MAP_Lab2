@@ -1,6 +1,6 @@
 package domain;
 
-public class Staff extends Person{
+public class Staff extends Person implements Identifiable{
     private int staffId;
     private String role;
 
@@ -24,5 +24,10 @@ public class Staff extends Person{
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    @Override
+    public int getId() {
+        return staffId;
     }
 }

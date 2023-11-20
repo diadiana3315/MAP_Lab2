@@ -1,7 +1,6 @@
 package controller;
 
 import domain.BoardingGate;
-
 import repository.Repository;
 
 import java.util.List;

@@ -2,29 +2,6 @@ package repository;
 
 import domain.FlightDelayLog;
 
-import java.util.ArrayList;
-import java.util.List;
+public class FlightDelayLogRepository extends Repository<FlightDelayLog> {
 
-public class FlightDelayLogRepository implements Repository<FlightDelayLog> {
-    private List<FlightDelayLog> flightDelayLogList = new ArrayList<>();
-
-    @Override
-    public void save(FlightDelayLog entity) {
-        flightDelayLogList.add(entity);
-    }
-
-    @Override
-    public void remove(FlightDelayLog entity) {
-        flightDelayLogList.remove(entity);
-    }
-
-    @Override
-    public List<FlightDelayLog> getAll() {
-        return flightDelayLogList;
-    }
-
-    @Override
-    public FlightDelayLog getById(int id) {
-        return null;
-    }
 }

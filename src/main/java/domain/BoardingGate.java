@@ -1,6 +1,6 @@
 package domain;
 
-public class BoardingGate {
+public class BoardingGate implements Identifiable {
     private int gateNumber;
     private int aircraftID;
     private AirlineCompany airline;
@@ -90,4 +90,8 @@ public class BoardingGate {
         this.departureTime = departureTime;
     }
 
+    @Override
+    public int getId() {
+        return gateNumber;
+    }
 }

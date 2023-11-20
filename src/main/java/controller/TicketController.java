@@ -1,10 +1,9 @@
 package controller;
 
-import domain.Flight;
-import domain.Passenger;
 import domain.Ticket;
 import domain.strategyPattern.PaymentStrategy;
 import repository.Repository;
+import repository.TicketRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +11,7 @@ import java.util.List;
 public class TicketController {
     private Repository<Ticket> ticketRepository;
 
-    public TicketController(Repository<Ticket> ticketRepository) {
+    public TicketController(TicketRepository ticketRepository) {
         this.ticketRepository = ticketRepository;
     }
 

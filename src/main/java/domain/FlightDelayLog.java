@@ -1,6 +1,6 @@
 package domain;
 
-public class FlightDelayLog implements FlightObserver {
+public class FlightDelayLog implements FlightObserver, Identifiable {
     private int logID;
     private int flightNumber;
     private String delayReason;
@@ -15,7 +15,7 @@ public class FlightDelayLog implements FlightObserver {
         this.flight = flight;
     }
 
-    public int getLogID() {
+    public int getID() {
         return logID;
     }
 
@@ -59,5 +59,10 @@ public class FlightDelayLog implements FlightObserver {
     public void update() {
         System.out.println("Flight delay log has been notified about a flight update.");
 
+    }
+
+    @Override
+    public int getId() {
+        return logID;
     }
 }

@@ -1,23 +1,22 @@
 package ui;
 
 import controller.TicketController;
-import domain.Flight;
-import domain.Passenger;
-import domain.Ticket;
+import domain.*;
 import domain.strategyPattern.CreditCardPayment;
 import domain.strategyPattern.PayPalPayment;
 import domain.strategyPattern.PaymentStrategy;
 
 import java.util.Scanner;
 
-public class TicketUI {
-    private TicketController ticketController;
+public class UserUI {
 
-    public TicketUI(TicketController ticketController) {
+    TicketController ticketController;
+
+    public UserUI(TicketController ticketController) {
         this.ticketController = ticketController;
     }
 
-    public void handleTicketOperations(){
+    public void handleTicketOperations() {
 
         int option;
         boolean exit = true;
@@ -67,7 +66,14 @@ public class TicketUI {
                     scanner.nextLine();
                     System.out.print("Price: ");
                     double price = scanner.nextDouble();
+                    scanner.nextLine();
                     Ticket newTicket = new Ticket(ticketId, passenger, flight, price);
+
+                    System.out.println("Enter class of the ticket:");
+                    String ticketType = scanner.nextLine();
+                    TicketType ticket = TicketFactory.createTicket(ticketType);
+                    ticket.displayInfo();
+
 
                     System.out.println("Select payment method:");
                     System.out.println("1. Credit Card");
@@ -111,6 +117,5 @@ public class TicketUI {
                     exit = false;
             }
         }
-
     }
 }

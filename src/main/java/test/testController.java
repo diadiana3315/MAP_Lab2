@@ -2,11 +2,12 @@ package test;
 
 import controller.FlightController;
 import domain.Flight;
-import repository.FlightRepository;
-import repository.Repository;
+
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import repository.FlightRepository;
+import repository.Repository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -18,7 +19,7 @@ public class testController {
     @BeforeEach
     void setUp() {
         flightRepository = new FlightRepository();
-        flightController = new FlightController(flightRepository);
+        flightController = new FlightController((FlightRepository) flightRepository);
     }
 
     @Test

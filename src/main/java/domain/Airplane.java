@@ -1,6 +1,6 @@
 package domain;
 
-public class Airplane {
+public class Airplane implements Identifiable {
     private int airplaneId;
     private String manufacturer;
     private String model;
@@ -34,5 +34,10 @@ public class Airplane {
     }
     public void setPilot(Pilot pilot) {
         this.pilot = pilot;
+    }
+
+    @Override
+    public int getId() {
+        return airplaneId;
     }
 }

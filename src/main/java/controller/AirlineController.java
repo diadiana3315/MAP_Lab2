@@ -1,6 +1,7 @@
 package controller;
 
 import domain.AirlineCompany;
+import repository.AirlineRepository;
 import repository.Repository;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.List;
 public class AirlineController {
     private Repository<AirlineCompany> airlineCompanyRepository;
 
-    public AirlineController(Repository<AirlineCompany> airlineCompanyRepository) {
+    public AirlineController(AirlineRepository airlineCompanyRepository) {
         this.airlineCompanyRepository = airlineCompanyRepository;
     }
 
@@ -18,16 +19,7 @@ public class AirlineController {
     }
 
     public void removeAirline(int airlineId) {
-        List<AirlineCompany> airline = airlineCompanyRepository.getAll();
-        List<AirlineCompany> airlineToRemove = new ArrayList<>();
-        for (AirlineCompany airlineCompany : airline) {
-            if (airlineCompany.getAirlineID() == airlineId) {
-                airlineToRemove.add(airlineCompany);
-            }
-        }
-        for (AirlineCompany flight : airlineToRemove) {
-            airlineCompanyRepository.remove(flight);
-        }
+        airlineCompanyRepository.removeById(airlineId);
     }
 
     public List<AirlineCompany> getAllAirlines() {

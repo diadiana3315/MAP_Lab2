@@ -1,6 +1,6 @@
 package domain;
 
-public class Pilot extends Person{
+public class Pilot extends Person implements Identifiable{
 
     private int pilotId;
     private int yearsOfActivity;
@@ -28,4 +28,8 @@ public class Pilot extends Person{
     }
 
 
+    @Override
+    public int getId() {
+        return pilotId;
+    }
 }

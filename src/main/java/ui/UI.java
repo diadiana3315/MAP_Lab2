@@ -1,18 +1,22 @@
 package ui;
-import controller.FlightController;
-import controller.AirlineController;
-import controller.TicketController;
 
+import controller.AirTrafficControlController;
+import controller.AirlineController;
+import controller.FlightController;
+import controller.TicketController;
 
 import java.util.Scanner;
 
 public class UI {
+    private AirTrafficControlController airTrafficControlController;
     private FlightController flightController;
     private AirlineController airlineController;
     private TicketController ticketController;
+
     private Scanner scanner = new Scanner(System.in);
 
-    public UI(FlightController flightController, AirlineController airlineController, TicketController ticketController) {
+    public UI(AirTrafficControlController airTrafficControlController, FlightController flightController, AirlineController airlineController, TicketController ticketController) {
+        this.airTrafficControlController = airTrafficControlController;
         this.flightController = flightController;
         this.airlineController = airlineController;
         this.ticketController = ticketController;
@@ -22,39 +26,30 @@ public class UI {
         boolean exit = false;
 
         while (!exit) {
-            System.out.println("Select an entity to work on:");
-            System.out.println("1. Flight");
-            System.out.println("2. Airline Company");
-            System.out.println("3. Ticket");
-            System.out.println("0. Exit");
 
-            int entityChoice = scanner.nextInt();
+            System.out.println("Select a menu:");
+            System.out.println("1. Admin");
+            System.out.println("2. User");
+            System.out.println("3. Exit");
+
+            int menuChoice = scanner.nextInt();
             scanner.nextLine();
 
-            switch (entityChoice) {
+            switch (menuChoice) {
                 case 1:
-                    FlightUI flightUI = new FlightUI(flightController);
-                    flightUI.handleFlightOperations();
+                    AdminUI adminUI = new AdminUI(airTrafficControlController, flightController, airlineController);
+                    adminUI.start();
                     break;
+
                 case 2:
-                    AirlineUI airlineUI = new AirlineUI(airlineController);
-                    airlineUI.handleAirlineOperations();
+                    UserUI userUI = new UserUI(ticketController);
+                    userUI.handleTicketOperations();
                     break;
+
                 case 3:
-                    TicketUI ticketUI = new TicketUI(ticketController);
-                    ticketUI.handleTicketOperations();
-                    break;
-                case 0:
                     exit = true;
-                    break;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
                     break;
             }
         }
-
-        System.out.println("Exiting the program.");
-        scanner.close();
     }
 }
-

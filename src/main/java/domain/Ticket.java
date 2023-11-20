@@ -2,7 +2,7 @@ package domain;
 
 import domain.strategyPattern.PaymentStrategy;
 
-public class Ticket{
+public class Ticket implements Identifiable{
     private int ticketId;
     private Passenger passenger;
     private Flight flight;
@@ -53,4 +53,8 @@ public class Ticket{
         paymentStrategy.pay(price);
     }
 
+    @Override
+    public int getId() {
+        return ticketId;
+    }
 }

@@ -1,6 +1,5 @@
 package controller;
 
-import domain.Flight;
 import domain.FlightDelayLog;
 import repository.Repository;
 
@@ -22,7 +21,7 @@ public class FlightDelayLogController {
     public void removeFlightDelayLog(int logID) {
         List<FlightDelayLog> flightDelayLogs = flightDelayLogList.getAll();
         for (FlightDelayLog log : flightDelayLogs) {
-            if (log.getLogID() == logID) {
+            if (log.getID() == logID) {
                 flightDelayLogList.remove(log);
                 return;
             }
