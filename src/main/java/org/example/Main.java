@@ -40,17 +40,15 @@ public class Main {
 
             System.out.println("Connected to server");
 
-            String query = "SELECT * FROM Pilots"; // Replace YourTableName with an actual table name
+            String query = "SELECT * FROM Pilots"; 
 
             try (Statement statement = connection.createStatement();
                  ResultSet resultSet = statement.executeQuery(query)) {
 
                 while (resultSet.next()) {
-                    // Retrieve data from the result set
-                    int id = resultSet.getInt("id"); // Replace "id" with an actual column name
-                    String name = resultSet.getString("name"); // Replace "name" with an actual column name
+                    int id = resultSet.getInt("id"); 
+                    String name = resultSet.getString("name"); 
 
-                    // Process the retrieved data (e.g., print it)
                     System.out.println("ID: " + id + ", Name: " + name);
                 }
             } catch (SQLException e) {
