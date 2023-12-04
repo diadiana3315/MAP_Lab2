@@ -47,9 +47,7 @@ public class FlightDelayLogRepository extends Repository<FlightDelayLog> {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            closeConnection();
-        }
+        } 
     }
 
     private Flight getFlightById(int flightId) {
@@ -89,9 +87,7 @@ public class FlightDelayLogRepository extends Repository<FlightDelayLog> {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            closeConnection();
-        }
+        } 
     }
 
     public void deleteFlightDelay(int logId) throws SQLException {
@@ -106,8 +102,6 @@ public class FlightDelayLogRepository extends Repository<FlightDelayLog> {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            closeConnection();
         }
     }
 
