@@ -22,7 +22,7 @@ public class testAirlineCompanyRepo {
         String user = "JavaProject";
         String password = "java123";
 
-        this.connection = DriverManager.getConnection(url, user, password);
+        connection = DriverManager.getConnection(url, user, password);
 
         airlineRepository = new AirlineRepository();
     }
