@@ -2,28 +2,27 @@ package controller;
 
 import domain.AirlineCompany;
 import repository.AirlineRepository;
-import repository.Repository;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.SQLException;
 
 public class AirlineController {
-    private Repository<AirlineCompany> airlineCompanyRepository;
+    private AirlineRepository airlineCompanyRepository;
 
     public AirlineController(AirlineRepository airlineCompanyRepository) {
         this.airlineCompanyRepository = airlineCompanyRepository;
     }
 
-    public void addAirline(AirlineCompany airlineCompany) {
-        airlineCompanyRepository.save(airlineCompany);
+    public void addAirline(AirlineCompany airlineCompany) throws SQLException {
+        airlineCompanyRepository.addAirline(airlineCompany);
     }
 
-    public void removeAirline(int airlineId) {
-        airlineCompanyRepository.removeById(airlineId);
+    public void removeAirline(int airlineId) throws SQLException {
+        airlineCompanyRepository.deleteAirline(airlineId);
     }
 
-    public List<AirlineCompany> getAllAirlines() {
-        return airlineCompanyRepository.getAll();
+    public void getAllAirlines() throws SQLException {
+        airlineCompanyRepository.viewAirlines();
     }
+
 }
 
