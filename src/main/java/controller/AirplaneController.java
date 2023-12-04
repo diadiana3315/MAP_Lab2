@@ -1,26 +1,26 @@
 package controller;
 
 import domain.Airplane;
-import repository.Repository;
+import repository.AirplaneRepository;
 
-import java.util.List;
+import java.sql.SQLException;
 
 public class AirplaneController {
-    private Repository<Airplane> airplaneRepository;
+    private AirplaneRepository airplaneRepository;
 
-    public AirplaneController(Repository<Airplane> airplaneRepository) {
+    public AirplaneController(AirplaneRepository airplaneRepository) {
         this.airplaneRepository = airplaneRepository;
     }
 
-    public void saveAirplane(Airplane airplane) {
-        airplaneRepository.save(airplane);
+    public void saveAirplane(Airplane airplane) throws SQLException {
+        airplaneRepository.addAirplane(airplane);
     }
 
-    public void removeAirplane(Airplane airplane) {
-        airplaneRepository.remove(airplane);
+    public void removeAirplane(int airplaneId) throws SQLException {
+        airplaneRepository.deleteAirplane(airplaneId);
     }
 
-    public List<Airplane> getAllAirplanes() {
-        return airplaneRepository.getAll();
+    public void getAllAirplanes() throws SQLException {
+        airplaneRepository.viewAirplanes();
     }
 }
