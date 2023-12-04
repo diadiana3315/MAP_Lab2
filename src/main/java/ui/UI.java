@@ -5,6 +5,7 @@ import controller.AirlineController;
 import controller.FlightController;
 import controller.TicketController;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class UI {
@@ -22,7 +23,7 @@ public class UI {
         this.ticketController = ticketController;
     }
 
-    public void start() {
+    public void start() throws SQLException {
         boolean exit = false;
 
         while (!exit) {
