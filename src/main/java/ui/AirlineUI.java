@@ -3,6 +3,7 @@ package ui;
 import controller.AirlineController;
 import domain.AirlineCompany;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class AirlineUI {
@@ -12,7 +13,7 @@ public class AirlineUI {
         this.airlineController = airlineController;
     }
 
-    public void handleAirlineOperations() {
+    public void handleAirlineOperations() throws SQLException {
         int option;
         boolean exit = true;
         Scanner scanner = new Scanner(System.in);
@@ -63,7 +64,7 @@ public class AirlineUI {
 
                 case 3:
                     System.out.println("Viewing all airlines:");
-                    System.out.println(airlineController.getAllAirlines());
+                    airlineController.getAllAirlines();
                     break;
 
                 case 0:
