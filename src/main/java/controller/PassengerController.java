@@ -1,26 +1,28 @@
 package controller;
 
 import domain.Passenger;
+import repository.PassengerRepository;
 import repository.Repository;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class PassengerController {
-    private Repository<Passenger> passengerRepository;
+    private PassengerRepository passengerRepository;
 
-    public PassengerController(Repository<Passenger> passengerRepository) {
+    public PassengerController(PassengerRepository passengerRepository) {
         this.passengerRepository = passengerRepository;
     }
 
-    public void savePassenger(Passenger passenger) {
-        passengerRepository.save(passenger);
+    public void savePassenger(Passenger passenger) throws SQLException {
+        passengerRepository.addPassenger(passenger);
     }
 
-    public void removePassenger(Passenger passenger) {
-        passengerRepository.remove(passenger);
+    public void removePassenger(int passengerId) throws SQLException {
+        passengerRepository.deletePassenger(passengerId);
     }
 
-    public List<Passenger> getAllPassengers() {
-        return passengerRepository.getAll();
+    public void getAllPassengers() throws SQLException {
+        passengerRepository.viewPassengers();
     }
 }
