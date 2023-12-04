@@ -6,6 +6,7 @@ import domain.strategyPattern.CreditCardPayment;
 import domain.strategyPattern.PayPalPayment;
 import domain.strategyPattern.PaymentStrategy;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class UserUI {
@@ -16,7 +17,7 @@ public class UserUI {
         this.ticketController = ticketController;
     }
 
-    public void handleTicketOperations() {
+    public void handleTicketOperations() throws SQLException {
 
         int option;
         boolean exit = true;
@@ -111,7 +112,7 @@ public class UserUI {
                     ticketController.removeTicket(ticketId);
                     break;
                 case 3:
-                    System.out.println(ticketController.getAllTickets());
+                    ticketController.getAllTickets();
                     break;
                 case 0:
                     exit = false;
