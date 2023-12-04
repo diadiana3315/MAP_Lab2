@@ -1,0 +1,90 @@
+package test;
+
+import domain.AirlineCompany;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import repository.AirlineRepository;
+
+import java.sql.*;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class testAirlineCompanyRepo {
+
+
+    private static AirlineRepository airlineRepository;
+    private static Connection connection;
+
+    @BeforeAll
+    public static void setUp() throws SQLException {
+        String url = "jdbc:sqlserver://DESKTOP-S0UCO99\\SQLEXPRESS:1433;databaseName=Airport;encrypt=true;trustServerCertificate=true";
+        String user = "JavaProject";
+        String password = "java123";
+
+        this.connection = DriverManager.getConnection(url, user, password);
+
+        airlineRepository = new AirlineRepository();
+    }
+
+
+    @Test
+    public void testAddAirline() throws SQLException {
+        AirlineCompany airlineCompany = new AirlineCompany(1, "Test Airline", "Test Country", 10, 50);
+
+        airlineRepository.addAirline(airlineCompany);
+
+        AirlineCompany addedAirline = getAirlineById(1);
+
+        assertEquals(airlineCompany.getId(), addedAirline.getId());
+        assertEquals(airlineCompany.getName(), addedAirline.getName());
+        assertEquals(airlineCompany.getCountry(), addedAirline.getCountry());
+        assertEquals(airlineCompany.getFleetSize(), addedAirline.getFleetSize());
+        assertEquals(airlineCompany.getNrEmployees(), addedAirline.getNrEmployees());
+    }
+
+    @Test
+    public void testRemoveAirline() throws SQLException {
+        int airlineId = 1;
+
+        airlineRepository.deleteAirline(airlineId);
+
+        AirlineCompany removedAirline = getAirlineById(1);
+
+        assertTrue(removedAirline == null);
+    }
+
+    private AirlineCompany getAirlineById(int airlineId) throws SQLException {
+        String query = "SELECT * FROM AirlineCompany WHERE airlineId = ?";
+        AirlineCompany airline = null;
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, airlineId);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    int id = resultSet.getInt("airlineId");
+                    String name = resultSet.getString("name");
+                    String country = resultSet.getString("country");
+                    int fleetSize = resultSet.getInt("fleetSize");
+                    int nrEmployees = resultSet.getInt("nrEmployees");
+
+                    airline = new AirlineCompany(id, name, country, fleetSize, nrEmployees);
+                }
+            }
+        }
+
+        return airline;
+    }
+
+
+
+    @AfterAll
+    public static void tearDown() throws SQLException {
+        if (connection != null && !connection.isClosed()) {
+            connection.close();
+        }
+    }
+
+
+}
