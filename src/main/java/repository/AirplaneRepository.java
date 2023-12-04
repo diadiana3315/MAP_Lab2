@@ -39,9 +39,7 @@ public class AirplaneRepository extends Repository<Airplane> {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            closeConnection();
-        }
+        } 
     }
     public void addAirplane(Airplane airplane) throws SQLException{
         String query = "INSERT INTO Airplane (airplaneId, manufacturer, model, pilotId) VALUES (?, ?, ?, ?)";
@@ -54,9 +52,7 @@ public class AirplaneRepository extends Repository<Airplane> {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            closeConnection();
-        }
+        } 
     }
 
     public void deleteAirplane(int airplaneId) throws SQLException {
@@ -71,8 +67,6 @@ public class AirplaneRepository extends Repository<Airplane> {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            closeConnection();
         }
     }
 
