@@ -1,34 +1,27 @@
 package controller;
 
 import domain.BoardingGate;
-import repository.Repository;
+import repository.BoardingGateRepository;
 
-import java.util.List;
+import java.sql.SQLException;
 
 public class BoardingGateController {
-    private Repository<BoardingGate> boardingGateRepository;
+    private BoardingGateRepository boardingGateRepository;
 
-    public BoardingGateController(Repository<BoardingGate> boardingGateRepository) {
+    public BoardingGateController(BoardingGateRepository boardingGateRepository) {
         this.boardingGateRepository = boardingGateRepository;
     }
 
 
-    public void addBoardingGate(BoardingGate boardingGate) {
-        boardingGateRepository.save(boardingGate);
+    public void addBoardingGate(BoardingGate boardingGate) throws SQLException {
+        boardingGateRepository.addBoardingGate(boardingGate);
     }
 
-    public void removeBoardingGate(int gateNumber) {
-        List<BoardingGate> boardingGates = boardingGateRepository.getAll();
-        for (BoardingGate gate : boardingGates) {
-            if (gate.getGateNumber() == gateNumber) {
-                boardingGateRepository.remove(gate);
-                return;
-            }
-        }
-        System.out.println("Boarding gate not found.");
+    public void removeBoardingGate(int gateNumber) throws SQLException {
+        boardingGateRepository.deleteBoardingGate(gateNumber);
     }
 
-    public List<BoardingGate> getAllBoardingGates() {
-        return boardingGateRepository.getAll();
+    public void getAllBoardingGates() throws SQLException {
+        boardingGateRepository.viewBoradingGates();
     }
 }
