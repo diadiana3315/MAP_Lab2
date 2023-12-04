@@ -11,6 +11,12 @@ public class Airplane implements Identifiable {
         this.model = model;
         this.pilot = pilot;
     }
+
+    public Airplane(int airplaneId, String manufacturer, String model) {
+        this.airplaneId = airplaneId;
+        this.manufacturer = manufacturer;
+        this.model = model;
+    }
     public int getAirplaneId() {
         return airplaneId;
     }
