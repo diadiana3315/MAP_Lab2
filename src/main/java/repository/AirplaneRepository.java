@@ -66,7 +66,7 @@ public class AirplaneRepository extends Repository<Airplane> {
     }
 
     public void deleteAirplane(int airplaneId) throws SQLException {
-        String query = "DELETE FROM AirlineCompany WHERE airlineId = ?";
+        String query = "DELETE FROM Airplane WHERE airplaneId = ?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, airplaneId);
             int affectedRows = preparedStatement.executeUpdate();
