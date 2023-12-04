@@ -7,6 +7,7 @@ import domain.Airplane;
 import domain.Flight;
 import domain.Pilot;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class AdminUI {
@@ -21,7 +22,7 @@ public class AdminUI {
         this.airlineController = airlineController;
     }
 
-    public void start() {
+    public void start() throws SQLException {
         boolean exit = false;
 
         while (!exit) {
