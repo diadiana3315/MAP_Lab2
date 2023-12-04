@@ -1,35 +1,28 @@
 package controller;
 
 import domain.FlightDelayLog;
-import repository.Repository;
+import repository.FlightDelayLogRepository;
 
-import java.util.List;
+import java.sql.SQLException;
 
 public class FlightDelayLogController {
 
-   private Repository<FlightDelayLog> flightDelayLogList;
+   private FlightDelayLogRepository flightDelayLogList;
 
-    public FlightDelayLogController(Repository<FlightDelayLog> flightDelayLogList) {
+    public FlightDelayLogController(FlightDelayLogRepository flightDelayLogList) {
         this.flightDelayLogList = flightDelayLogList;
     }
 
 
-    public void addFlightDelayLog(FlightDelayLog flightDelayLog) {
-        flightDelayLogList.save(flightDelayLog);
+    public void addFlightDelayLog(FlightDelayLog flightDelayLog) throws SQLException {
+        flightDelayLogList.addFlightDelay(flightDelayLog);
     }
 
-    public void removeFlightDelayLog(int logID) {
-        List<FlightDelayLog> flightDelayLogs = flightDelayLogList.getAll();
-        for (FlightDelayLog log : flightDelayLogs) {
-            if (log.getID() == logID) {
-                flightDelayLogList.remove(log);
-                return;
-            }
-        }
-        System.out.println("Flight delay log not found.");
+    public void removeFlightDelayLog(int logID) throws SQLException {
+        flightDelayLogList.deleteFlightDelay(logID);
     }
 
-    public List<FlightDelayLog> getAllFlightDelayLogs() {
-        return flightDelayLogList.getAll();
+    public void getAllFlightDelayLogs() throws SQLException {
+        flightDelayLogList.viewFlightDelay();
     }
 }
