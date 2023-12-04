@@ -41,9 +41,7 @@ public class AirlineRepository extends Repository<AirlineCompany>{
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            closeConnection();
-        }
+        } 
     }
     public void addAirline(AirlineCompany airline) throws SQLException{
         String query = "INSERT INTO AirlineCompany (airlineId, name, country, fleetSize, nrEmployees) VALUES (?, ?, ?, ?, ?)";
@@ -58,9 +56,7 @@ public class AirlineRepository extends Repository<AirlineCompany>{
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            closeConnection();
-        }
+        } 
     }
 
     public void deleteAirline(int airlineId) throws SQLException {
@@ -75,9 +71,7 @@ public class AirlineRepository extends Repository<AirlineCompany>{
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            closeConnection();
-        }
+        } 
     }
 
     private void closeConnection() {
