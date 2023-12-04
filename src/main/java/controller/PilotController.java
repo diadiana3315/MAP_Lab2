@@ -1,34 +1,28 @@
 package controller;
 
 import domain.Pilot;
+import repository.PilotRepository;
 import repository.Repository;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class PilotController {
-    private Repository<Pilot> pilotList;
+    private PilotRepository pilotList;
 
-    public PilotController(Repository<Pilot> pilotList) {
+    public PilotController(PilotRepository pilotList) {
         this.pilotList = pilotList;
     }
 
-    public void addPilot(Pilot pilot) {
-        pilotList.save(pilot);
+    public void addPilot(Pilot pilot) throws SQLException {
+        pilotList.addPilot(pilot);
     }
 
-    public void removePilot(int pilotId) {
-        List<Pilot> pilots = pilotList.getAll();
-        for (Pilot pilot : pilots) {
-            if (pilot.getPilotId() == pilotId) {
-                pilotList.remove(pilot);
-                return;
-            }
-        }
-        System.out.println("Pilot not found.");
+    public void removePilot(int pilotId) throws SQLException {
+        pilotList.deletePilot(pilotId);
     }
 
-    public List<Pilot> getAllPilots() {
-        return pilotList.getAll();
+    public void getAllPilots() throws SQLException { pilotList.viewPilots();
     }
 
 }
