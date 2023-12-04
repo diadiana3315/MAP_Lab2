@@ -44,9 +44,7 @@ public class BoardingGateRepository extends Repository<BoardingGate> {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            closeConnection();
-        }
+        } 
     }
     public void addBoardingGate(BoardingGate boardingGate) throws SQLException{
         String query = "INSERT INTO BoardingGates (gateNumber, aircraftId, airline, flightNumber, departureTime) VALUES (?, ?, ?, ?, ?)";
@@ -61,9 +59,7 @@ public class BoardingGateRepository extends Repository<BoardingGate> {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            closeConnection();
-        }
+        } 
     }
 
     public void deleteBoardingGate(int gateNumber) throws SQLException {
@@ -78,9 +74,7 @@ public class BoardingGateRepository extends Repository<BoardingGate> {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            closeConnection();
-        }
+        } 
     }
 
     private AirlineCompany getAirlineById(int airlineId){
